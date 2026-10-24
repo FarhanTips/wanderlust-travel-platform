@@ -78,7 +78,7 @@ export default function NavBar() {
             "absolute left-1/2 -translate-x-1/2 text-2xl font-bold italic tracking-tight text-brand",
           )}
         >
-          Wanderlast
+          Wanderlust
         </Link>
 
         {/* Account actions */}

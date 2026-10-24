@@ -88,7 +88,7 @@ export default function Footer() {
         <p
           className={`${brandFont.className} text-6xl font-bold tracking-tight md:text-7xl`}
         >
-          Wanderlast
+          Wanderlust
         </p>
         <p className="mt-4 text-white/70">
           Your gateway to extraordinary travel experiences around the world.
@@ -155,10 +155,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@wandarland.com"
+                  href="mailto:info@wanderlust.com"
                   className="transition-colors hover:text-brand"
                 >
-                  info@wandarland.com
+                  info@wanderlust.com
                 </a>
               </li>
             </ul>
