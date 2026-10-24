@@ -40,6 +40,11 @@ app.post("/add-destination", async (req, res) => {
   res.send(result);
 })
 
+app.get('/destinations', async (req, res) => {
+  const result = await destinationCollection.find().toArray();
+  res.send(result);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
