@@ -72,7 +72,7 @@ const DestinationCard = ({ destination }: DestinationCardProps) => {
                     href={`/destinations/${_id}`}
                     className="mt-1 inline-flex w-fit items-center gap-1 text-xs font-semibold tracking-widest uppercase text-brand transition-colors hover:text-brand-dark"
                 >
-                    Book Now
+                    <span className="border-b border-b-brand-dark">Book Now</span>
                     <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
             </div>
