@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import ctaImg from "@/assets/CTA.png";
+import Link from "next/link";
 
 export default function CTA() {
   return (
@@ -21,13 +22,13 @@ export default function CTA() {
         <p className="mt-4 text-white/85 md:text-lg">
           Join thousands of travelers who have discovered the world with us
         </p>
-        <a
+        <Link
           href="/destinations"
           className="group mt-9 inline-flex h-12 items-center gap-3 rounded bg-white px-8 text-sm font-semibold uppercase tracking-[0.12em] text-foreground shadow-lg transition-all hover:bg-white/90 hover:shadow-xl"
         >
           Book Your Trip Today
           <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-        </a>
+        </Link>
       </div>
     </section>
   );

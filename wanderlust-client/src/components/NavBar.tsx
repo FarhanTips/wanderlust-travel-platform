@@ -18,7 +18,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-foreground/5 bg-background shadow-sm">
+    <header className="sticky top-0 z-50  bg-background shadow-sm">
       <nav className="relative mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Mobile navigation */}
         <div className="md:hidden">

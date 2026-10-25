@@ -24,7 +24,7 @@ Verify changes with: `npm run lint && npm run build` (add `npx tsc --noEmit` for
 
 ## Toolchain quirks (from `next.config.ts` / `components.json`)
 
-- **Cache Components mode**: `cacheComponents: true` is on. Uncached/dynamic data must be wrapped in Suspense; caching is opt-in via `use cache` directives. See `node_modules/next/dist/docs/01-app/02-guides/migrating-to-cache-components.md` before writing data fetching.
+- **Cache Components mode is OFF** (`cacheComponents: false` in `next.config.ts`). No Suspense/data-caching directives needed; data fetching is uncached by default.
 - **React Compiler is enabled** (`reactCompiler: true` + `babel-plugin-react-compiler`): follow the Rules of React — no mutating props/state during render, no reading refs during render.
 - **Tailwind CSS v4, CSS-first**: there is no `tailwind.config.*` or PostCSS config. Theme tokens live in `src/app/globals.css` (`@theme inline` block); Tailwind is loaded via the `@tailwindcss/turbopack` loader in `next.config.ts`. Don't add a config file.
 - **shadcn UI, style `base-nova`** (`components.json`): primitives come from `@base-ui/react` (Base UI), **not Radix**. Add components with `npx shadcn add <component>` — it resolves the `@/*` → `./src/*` aliases from `tsconfig.json`.

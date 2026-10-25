@@ -20,7 +20,7 @@ const AddDestinationPage = () => {
     const formRef = useRef<HTMLFormElement>(null);
 
     // Keeps the category dropdown in sync, so Cancel can clear it too
-    const [category, setCategory] = useState<string | null>("Beach");
+    const [category, setCategory] = useState<string>("Beach");
 
     async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -47,16 +47,16 @@ const AddDestinationPage = () => {
         if (res.ok && data.acknowledged) {
             toast.success("Destination added successfully!");
             formRef.current?.reset();
-            setCategory(null);
+            setCategory("");
 
-            
+
             router.refresh();
         }
     }
 
     function handleCancel() {
         formRef.current?.reset();   // clears every input, textarea and date
-        setCategory(null);          // clears the category dropdown
+        setCategory("");          // clears the category dropdown
     }
 
     return (
@@ -88,7 +88,7 @@ const AddDestinationPage = () => {
 
                                 <div className="grid gap-2">
                                     <Label>Category</Label>
-                                    <Select name="category" value={category} onValueChange={setCategory}>
+                                    <Select name="category" value={category} onValueChange={(value) => setCategory(value ?? "")}>
                                         <SelectTrigger className="w-full">
                                             <SelectValue placeholder="Select category" />
                                         </SelectTrigger>
