@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowLeft, CalendarDays, MapPin, Check, Trash2, ArrowRight } from "lucide-react";
 import { DestinationType } from "@/lib/destinations";
 import EditDestinationDialog from "@/components/EditDestinationDialog";
+import DeleteDestinationDialog from "@/components/DeleteDestinationDialog";
 
 interface DestinationDetailsPageProps {
     params: Promise<{ id: string }>;
@@ -32,13 +33,7 @@ const DestinationDetailsPage = async ({ params }: DestinationDetailsPageProps) =
                 </Link>
                 <div className="flex items-center gap-3">
                     <EditDestinationDialog destination={destination}></EditDestinationDialog>
-                    <Link
-                        href="#"
-                        className="inline-flex items-center gap-2 rounded-md border border-red-200 bg-white px-4 py-2 text-sm font-medium text-red-600 shadow-sm hover:bg-red-50"
-                    >
-                        <Trash2 className="size-4" />
-                        Cancel
-                    </Link>
+                    <DeleteDestinationDialog destination={destination}></DeleteDestinationDialog>
                 </div>
             </div>
 

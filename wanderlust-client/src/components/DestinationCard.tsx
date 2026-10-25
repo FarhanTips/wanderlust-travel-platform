@@ -22,7 +22,7 @@ const DestinationCard = ({ destination }: DestinationCardProps) => {
     return (
         <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
             {/* Cover image + rating badge */}
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+            <div className="relative aspect-16/10 w-full overflow-hidden bg-muted">
                 {imageUrl ? (
                     <Image
                         src={imageUrl}
