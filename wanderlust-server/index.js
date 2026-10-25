@@ -61,6 +61,13 @@ app.patch('/destination/:id', async (req, res) => {
   res.send(result);
 })
 
+app.delete('/destination/:id', async (req, res) => {
+  const id = req.params.id;
+  const result = await destinationCollection.deleteOne({_id: new ObjectId(id)});
+
+  res.send(result);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
