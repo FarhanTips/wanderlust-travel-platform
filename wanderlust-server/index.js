@@ -80,6 +80,13 @@ app.get("/booking", async (req, res) => {
   res.send(result);
 })
 
+app.get('/my-bookings/:email', async (req, res) => {
+  const email = req.params.email;
+  // console.log(email);
+  const result = await bookingCollection.find({email: email}).toArray();
+  res.send(result);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
