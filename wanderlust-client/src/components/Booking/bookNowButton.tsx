@@ -24,10 +24,11 @@ const BookNowButton = ({ destination }: BookNowButtonProps) => {
         );
     }
 
+    const { _id, ...destinationData } = destination;
     const handleBookNowButton = async () => {
         const bookedData = {
             email: session?.user.email,
-            ...destination,
+            ...destinationData,
             BookingTime: new Date(),
         }
         console.log(bookedData);
