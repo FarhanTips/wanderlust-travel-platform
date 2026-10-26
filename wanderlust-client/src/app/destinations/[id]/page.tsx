@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, CalendarDays, MapPin, Check, ArrowRight } from "lucide-react";
+import { ArrowLeft, CalendarDays, MapPin, Check } from "lucide-react";
 import { DestinationType } from "@/lib/destinations";
 import DeleteDestinationDialog from "@/components/CRUD Destination/DeleteDestinationDialog";
 import EditDestinationDialog from "@/components/CRUD Destination/EditDestinationDialog"
+import BookNowButton from "@/components/Booking/bookNowButton";
 
 interface DestinationDetailsPageProps {
     params: Promise<{ id: string }>;
@@ -102,13 +103,7 @@ const DestinationDetailsPage = async ({ params }: DestinationDetailsPageProps) =
                             {destination.departureDate ?? "05/15/2026"}
                         </div>
 
-                        <Link
-                            href="#"
-                            className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3.5 text-base font-semibold text-white shadow-md transition-colors hover:bg-brand-dark"
-                        >
-                            Book Now
-                            <ArrowRight className="size-4" />
-                        </Link>
+                        <BookNowButton destination={destination}></BookNowButton>
 
                         <div className="mt-6 space-y-3">
                             <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
