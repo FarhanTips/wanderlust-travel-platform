@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import bannerImg from "@/assets/Banner.png";
+import Link from "next/link";
 
 const searchFields = [
   { name: "location", label: "Location", placeholder: "Address, City Or Zip" },
@@ -25,7 +26,7 @@ export default function Banner() {
         sizes="100vw"
         className="-z-10 object-cover"
       />
-      <div className="-z-10 bg-gradient-to-b from-black/45 via-black/20 to-black/60" />
+      <div className="-z-10 bg-linear-to-b from-black/45 via-black/20 to-black/60" />
 
       {/* Hero content */}
       <div className="relative flex flex-1 flex-col items-center justify-center px-4 py-24 text-center">
@@ -38,19 +39,19 @@ export default function Banner() {
           with our curated travel experiences.
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
-          <a
+          <Link
             href="/destinations"
             className="group inline-flex h-12 items-center justify-center gap-2 rounded bg-brand px-9 text-sm font-semibold uppercase tracking-[0.15em] text-white shadow-lg transition-all hover:bg-brand-dark hover:shadow-xl"
           >
             Explore Now
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
+          </Link>
+          <Link
             href="/destinations"
             className="inline-flex h-12 items-center justify-center rounded border border-white/25 bg-white/15 px-9 text-sm font-semibold uppercase tracking-[0.15em] text-white backdrop-blur-sm transition-colors hover:bg-white/25"
           >
             View Destination
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CircleUserRound, Menu as MenuIcon } from "lucide-react";
+import { Menu as MenuIcon } from "lucide-react";
 import { Menu } from "@base-ui/react/menu";
 import { cn } from "@/lib/utils";
+import UserInfo from "./userInfo";
 
 
 const navLinks = [
@@ -82,27 +83,8 @@ export default function NavBar() {
         </Link>
 
         {/* Account actions */}
-        <div className="flex items-center gap-4 text-sm font-medium sm:gap-5">
-          <Link
-            href="/profile"
-            className="hidden items-center gap-1.5 text-foreground/75 transition-colors hover:text-brand sm:flex"
-          >
-            <CircleUserRound className="size-4" />
-            Profile
-          </Link>
-          <Link
-            href="/login"
-            className="text-foreground/75 transition-colors hover:text-brand"
-          >
-            Login
-          </Link>
-          <Link
-            href="/signup"
-            className="text-foreground/75 transition-colors hover:text-brand"
-          >
-            Sign Up
-          </Link>
-        </div>
+        <UserInfo></UserInfo>
+
       </nav>
     </header>
   );
