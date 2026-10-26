@@ -1,15 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import DestinationCard from "@/components/DestinationCard";
+import {Select,SelectContent,SelectItem,SelectTrigger,SelectValue,} from "@/components/ui/select";
 import type { DestinationType } from "@/lib/destinations";
+import DestinationCard from "./DestinationCard";
 
 const priceRanges = [
     { label: "Under $200", min: 0, max: 199 },

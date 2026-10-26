@@ -2,8 +2,8 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
 import { PenSquare } from "lucide-react";
-import EditForm from "./EditForm"
 import { DestinationType } from "@/lib/destinations";
+import EditForm from "./EditForm";
 
 interface EditDestinationDialogProps {
     destination: DestinationType;

@@ -8,8 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "
 import { SyntheticEvent, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { DialogFooter, DialogClose } from "./ui/dialog";
 import { DestinationType } from "@/lib/destinations";
+import { DialogClose, DialogFooter } from "../ui/dialog";
 
 interface EditFormProps {
     destination: DestinationType

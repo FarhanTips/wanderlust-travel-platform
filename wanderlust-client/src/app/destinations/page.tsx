@@ -1,4 +1,4 @@
-import DestinationsExplorer from "@/components/DestinationsExplorer";
+import DestinationsExplorer from "@/components/CRUD Destination/DestinationsExplorer";
 import type { DestinationType } from "@/lib/destinations";
 
 const AllDestinationsPage = async () => {

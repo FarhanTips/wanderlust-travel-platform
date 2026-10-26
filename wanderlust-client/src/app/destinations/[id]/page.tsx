@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, CalendarDays, MapPin, Check, Trash2, ArrowRight } from "lucide-react";
+import { ArrowLeft, CalendarDays, MapPin, Check, ArrowRight } from "lucide-react";
 import { DestinationType } from "@/lib/destinations";
-import EditDestinationDialog from "@/components/EditDestinationDialog";
-import DeleteDestinationDialog from "@/components/DeleteDestinationDialog";
+import DeleteDestinationDialog from "@/components/CRUD Destination/DeleteDestinationDialog";
+import EditDestinationDialog from "@/components/CRUD Destination/EditDestinationDialog"
 
 interface DestinationDetailsPageProps {
     params: Promise<{ id: string }>;

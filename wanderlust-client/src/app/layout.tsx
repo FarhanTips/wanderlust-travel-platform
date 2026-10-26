@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+import NavBar from "@/components/shared/NavBar";
+import Footer from "@/components/shared/Footer";
 import { Toaster } from "react-hot-toast";
 
 const josefinSans = Josefin_Sans({
