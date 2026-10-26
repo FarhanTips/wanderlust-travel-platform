@@ -34,4 +34,7 @@ Verify changes with: `npm run lint && npm run build` (add `npx tsc --noEmit` for
 
 - Source root is `src/`: `src/app` is the App Router entry (`layout.tsx`, `page.tsx`, `globals.css`); `src/components/ui` holds shadcn-generated components; `src/lib` holds helpers.
 - The `nextjs-agent-rules` block at the top of this file is marker-delimited and rewritten by `next dev`; only content outside the markers is yours to edit. Commit `AGENTS.md` to keep the tree clean.
-- `.env*` files are gitignored and none are checked in — no env vars are required yet.
+- `.env*` files are gitignored and none are checked in. Auth needs `MONGODB_URL` in `.env.local` (`src/lib/auth.ts`); `BETTER_AUTH_URL` is optional (`src/lib/auth-client.ts`).
+- Auth is better-auth: handler at `src/app/api/auth/[...all]/route.ts`; read sessions server-side with `auth.api.getSession(...)` (`@/lib/auth`), client-side with `authClient.useSession()` (`@/lib/auth-client`).
+- Most data pages/components fetch the companion Express server at hardcoded `http://localhost:5000` — start `../wanderlust-server` (`node index.js`) or those pages fail. No API base-URL constant exists; keep new fetches consistent.
+- `src/lib/auth.ts` imports `@better-auth/mongo-adapter`, which is not in `package.json` — it resolves only as a transitive dep of `better-auth`. If auth breaks after a dependency change, add it explicitly.
