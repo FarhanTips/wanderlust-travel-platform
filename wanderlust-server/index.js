@@ -25,6 +25,7 @@ const connectedClient = await connectToMongoDB();
 
 const db = connectedClient.db("wanderlust");
 const destinationCollection = db.collection("destination");
+const bookingCollection = db.collection("bookings");
 
 
 app.get('/', (req, res) => {
@@ -65,6 +66,17 @@ app.delete('/destination/:id', async (req, res) => {
   const id = req.params.id;
   const result = await destinationCollection.deleteOne({_id: new ObjectId(id)});
 
+  res.send(result);
+})
+
+app.post("/booking", async (req, res) => {
+  const newData = req.body;
+  const result = await bookingCollection.insertOne(newData);
+  res.send(result);
+})
+
+app.get("/booking", async (req, res) => {
+  const result = await bookingCollection.find().toArray();
   res.send(result);
 })
 
