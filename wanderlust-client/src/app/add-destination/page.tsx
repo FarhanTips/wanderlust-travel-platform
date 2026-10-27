@@ -8,8 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
 import { SaveIcon, Trash2Icon } from "lucide-react";
 import { SyntheticEvent, useRef, useState } from "react";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 
 const AddDestinationPage = () => {

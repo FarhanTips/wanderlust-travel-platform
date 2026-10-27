@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 interface BookNowButtonProps {
     destination: DestinationType
@@ -32,6 +32,7 @@ const BookNowButton = ({ destination }: BookNowButtonProps) => {
             BookingTime: new Date(),
         }
         console.log(bookedData);
+        // console.log(JSON.stringify(bookedData));
 
         const res = await fetch("http://localhost:5000/booking", {
             method: "POST",
@@ -45,7 +46,7 @@ const BookNowButton = ({ destination }: BookNowButtonProps) => {
         console.log("after POST  bookedData", data);
 
         if (res.ok && data.acknowledged) {
-            toast.success("Booked successfully!");
+            toast.success(`${bookedData.name} booked successfully!`);
         }
 
 

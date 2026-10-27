@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { CalendarDays, Trash2 } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 import { MyBookingType } from "@/app/my-bookings/page";
+import BookingDeleteButton from "./bookingDeleteButton";
 
 interface MyBookingCardProps {
     booking: MyBookingType
@@ -64,15 +65,7 @@ const MyBookingCard = ({booking}: MyBookingCardProps) => {
             </div>
 
             {/* Actions */}
-            <div className="flex sm:self-end">
-                <button
-                    type="button"
-                    className="inline-flex cursor-pointer items-center gap-1.5 rounded-md border border-destructive px-4 py-2 text-sm font-medium text-destructive transition-colors hover:bg-destructive/10"
-                >
-                    <Trash2 className="size-4" />
-                    Cancel
-                </button>
-            </div>
+            <BookingDeleteButton booking={booking}></BookingDeleteButton>
         </article>
     );
 };

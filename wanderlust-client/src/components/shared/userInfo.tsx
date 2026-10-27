@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from "@/components/ui/popover"
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const UserInfo = () => {
     const router = useRouter();

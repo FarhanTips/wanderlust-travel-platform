@@ -6,8 +6,8 @@ import { Input } from "@/components/ui/input"
 import { authClient } from "@/lib/auth-client"
 import Link from "next/link"
 import { SyntheticEvent } from "react"
-import toast from "react-hot-toast"
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify"
 
 export default function LogInPage() {
 

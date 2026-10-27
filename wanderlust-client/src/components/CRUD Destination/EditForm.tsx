@@ -6,10 +6,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
 import { SyntheticEvent, useRef, useState } from "react";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { DestinationType } from "@/lib/destinations";
 import { DialogClose, DialogFooter } from "../ui/dialog";
+import { toast } from "react-toastify";
 
 interface EditFormProps {
     destination: DestinationType

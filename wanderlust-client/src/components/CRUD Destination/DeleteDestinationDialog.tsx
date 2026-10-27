@@ -4,8 +4,8 @@ import { Trash2Icon } from "lucide-react"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogMedia, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { DestinationType } from "@/lib/destinations";
-import toast from "react-hot-toast";
 import {useRouter} from "next/navigation";
+import { toast } from "react-toastify";
 
 
 interface DeleteDestinationDialogProps {
@@ -25,7 +25,7 @@ const DeleteDestinationDialog = ({ destination }: DeleteDestinationDialogProps) 
         console.log("After Delete", data);
 
         if (res.ok && data.acknowledged) {
-            toast.error("Delete Successfull!");
+            toast.warn("Delete Successfull!");
             // formRef.current?.reset();
             // setCategory("");
             router.replace("/destinations");   // Use replace instead of push so the user can't go back to the deleted destination page
