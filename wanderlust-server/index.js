@@ -84,6 +84,14 @@ app.get('/my-bookings/:email', async (req, res) => {
   const email = req.params.email;
   // console.log(email);
   const result = await bookingCollection.find({email: email}).toArray();
+  // console.log(result)
+  res.send(result);
+})
+
+app.delete('/my-bookings/:id', async (req, res) => {
+  const id = req.params.id;
+  const result = await bookingCollection.deleteOne({_id: new ObjectId(id)});
+
   res.send(result);
 })
 
