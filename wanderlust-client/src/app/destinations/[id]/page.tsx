@@ -5,6 +5,9 @@ import { DestinationType } from "@/lib/destinations";
 import DeleteDestinationDialog from "@/components/CRUD Destination/DeleteDestinationDialog";
 import EditDestinationDialog from "@/components/CRUD Destination/EditDestinationDialog"
 import BookNowButton from "@/components/Booking/bookNowButton";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { notFound } from "next/navigation";
 
 interface DestinationDetailsPageProps {
     params: Promise<{ id: string }>;
@@ -12,8 +15,26 @@ interface DestinationDetailsPageProps {
 
 const DestinationDetailsPage = async ({ params }: DestinationDetailsPageProps) => {
     const { id } = await params;
-    const res = await fetch(`http://localhost:5000/destination/${id}`);
+
+    const jwtToken = await auth.api.getToken({
+        headers: await headers()
+    });
+    // console.log(jwtToken?.token);
+
+
+    const res = await fetch(`http://localhost:5000/destination/${id}`, {
+        headers: {
+            authorization: `Bearer ${jwtToken?.token}`
+        }
+    });
+
+    // console.log("after get", res);
+    if (res.statusText === "Unauthorized") {
+        notFound();
+    }
+
     const destination: DestinationType = await res.json();
+
 
     const priceLabel = destination.price
         ? destination.price.startsWith("$")
