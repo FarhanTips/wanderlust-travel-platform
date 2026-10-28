@@ -60,7 +60,7 @@ app.get('/', (req, res) => {
   res.send('Working')
 })
 
-app.post("/add-destination", async (req, res) => {
+app.post("/add-destination", verifyToken, async (req, res) => {
   const newData = req.body;
   console.log(newData);
 
