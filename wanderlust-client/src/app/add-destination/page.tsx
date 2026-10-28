@@ -10,6 +10,7 @@ import { SaveIcon, Trash2Icon } from "lucide-react";
 import { SyntheticEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { authClient } from "@/lib/auth-client";
 
 
 const AddDestinationPage = () => {
@@ -33,24 +34,31 @@ const AddDestinationPage = () => {
         });
         console.log("Data from form", newPackage);
 
+        const { data, error } = await authClient.token();
+
         const res = await fetch("http://localhost:5000/add-destination", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer ${data?.token}`
             },
             body: JSON.stringify(newPackage),
         })
 
-        const data = await res.json();
-        console.log("after POST data", data);
+        // console.log("res", res);
+        const result = await res.json();
+        console.log("after POST", result);
 
-        if (res.ok && data.acknowledged) {
+        if (res.ok && result.acknowledged) {
             toast.success("Destination added successfully!");
             formRef.current?.reset();
             setCategory("");
 
 
             router.refresh();
+        }
+        else{
+            toast.error("Unauthorized. Access Denied!");
         }
     }
 
