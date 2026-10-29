@@ -74,6 +74,11 @@ app.get('/destinations', async (req, res) => {
   res.send(result);
 })
 
+app.get('/featured-destinations', async (req, res) => {
+  const result = await destinationCollection.find().limit(5).toArray();
+  res.send(result);
+})
+
 app.get('/destination/:id', verifyToken, async (req, res) => {
   const id = req.params.id;
   const result = await destinationCollection.findOne({ _id: new ObjectId(id) });
