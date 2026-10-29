@@ -80,7 +80,7 @@ app.get('/destination/:id', verifyToken, async (req, res) => {
   res.send(result);
 })
 
-app.patch('/destination/:id', async (req, res) => {
+app.patch('/destination/:id', verifyToken, async (req, res) => {
   const id = req.params.id;
   const result = await destinationCollection.updateOne(
     { _id: new ObjectId(id) },
@@ -90,7 +90,7 @@ app.patch('/destination/:id', async (req, res) => {
   res.send(result);
 })
 
-app.delete('/destination/:id', async (req, res) => {
+app.delete('/destination/:id', verifyToken, async (req, res) => {
   const id = req.params.id;
   const result = await destinationCollection.deleteOne({ _id: new ObjectId(id) });
 
@@ -108,7 +108,7 @@ app.get("/booking", async (req, res) => {
   res.send(result);
 })
 
-app.get('/my-bookings/:email', async (req, res) => {
+app.get('/my-bookings/:email', verifyToken, async (req, res) => {
   const email = req.params.email;
   // console.log(email);
   const result = await bookingCollection.find({ email: email }).toArray();
@@ -116,7 +116,7 @@ app.get('/my-bookings/:email', async (req, res) => {
   res.send(result);
 })
 
-app.delete('/my-bookings/:id', async (req, res) => {
+app.delete('/my-bookings/:id', verifyToken, async (req, res) => {
   const id = req.params.id;
   const result = await bookingCollection.deleteOne({ _id: new ObjectId(id) });
 
