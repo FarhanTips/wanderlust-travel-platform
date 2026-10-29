@@ -16,7 +16,7 @@ const BookingDeleteButton = ({ booking }: BookingDeleteButtonProps) => {
     const handleBookingDeleteButton = async () => {
         const token = await getTokenFromClientComponent();
 
-        const res = await fetch(`http://localhost:5000/my-bookings/${booking._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-bookings/${booking._id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${token}`

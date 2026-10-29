@@ -20,7 +20,7 @@ const DeleteDestinationDialog = ({ destination }: DeleteDestinationDialogProps) 
     const handleDeleteButton = async () => {
         const token = await getTokenFromClientComponent();
 
-        const res = await fetch(`http://localhost:5000/destination/${destination._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/destination/${destination._id}`, {
             method: "Delete",
             headers: {
                 authorization: `Bearer ${token}`

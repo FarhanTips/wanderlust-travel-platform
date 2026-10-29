@@ -26,7 +26,7 @@ const MyBookingPage = async () => {
 
     const token = await getTokenFromServerComponent();
 
-    const res = await fetch(`http://localhost:5000/my-bookings/${session?.user.email}`,{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-bookings/${session?.user.email}`,{
         headers: {
             authorization: `Bearer ${token}`
         }

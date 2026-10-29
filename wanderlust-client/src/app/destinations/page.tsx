@@ -3,7 +3,7 @@ import type { DestinationType } from "@/lib/destinations";
 
 const AllDestinationsPage = async () => {
 
-    const res = await fetch("http://localhost:5000/destinations");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/destinations`);
     const destinations: DestinationType[] = await res.json();
 
     return (

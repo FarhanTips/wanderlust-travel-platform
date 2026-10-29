@@ -16,7 +16,7 @@ const controlClassName =
     "static size-11 border-border text-muted-foreground transition-colors hover:border-brand hover:bg-transparent hover:text-brand disabled:opacity-50";
 
 const Features = async () => {
-    const res = await fetch("http://localhost:5000/featured-destinations");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/featured-destinations`);
     const featuredDestinations: DestinationType[] = await res.json();
 
     return (
