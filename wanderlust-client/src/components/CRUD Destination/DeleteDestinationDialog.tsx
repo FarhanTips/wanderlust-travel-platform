@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { DestinationType } from "@/lib/destinations";
 import {useRouter} from "next/navigation";
 import { toast } from "react-toastify";
+import getTokenFromClientComponent from "@/lib/getTokenFromClientComponent";
 
 
 interface DeleteDestinationDialogProps {
@@ -17,8 +18,13 @@ const DeleteDestinationDialog = ({ destination }: DeleteDestinationDialogProps) 
     const router = useRouter();
 
     const handleDeleteButton = async () => {
+        const token = await getTokenFromClientComponent();
+
         const res = await fetch(`http://localhost:5000/destination/${destination._id}`, {
-            method: "Delete"
+            method: "Delete",
+            headers: {
+                authorization: `Bearer ${token}`
+            }
         });
 
         const data = await res.json();

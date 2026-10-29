@@ -10,7 +10,7 @@ import { SaveIcon, Trash2Icon } from "lucide-react";
 import { SyntheticEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { authClient } from "@/lib/auth-client";
+import getTokenFromClientComponent from "@/lib/getTokenFromClientComponent";
 
 
 const AddDestinationPage = () => {
@@ -34,13 +34,13 @@ const AddDestinationPage = () => {
         });
         console.log("Data from form", newPackage);
 
-        const { data, error } = await authClient.token();
+        const token = await getTokenFromClientComponent();
 
         const res = await fetch("http://localhost:5000/add-destination", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                authorization: `Bearer ${data?.token}`
+                authorization: `Bearer ${token}`
             },
             body: JSON.stringify(newPackage),
         })

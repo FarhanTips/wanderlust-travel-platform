@@ -5,9 +5,9 @@ import { DestinationType } from "@/lib/destinations";
 import DeleteDestinationDialog from "@/components/CRUD Destination/DeleteDestinationDialog";
 import EditDestinationDialog from "@/components/CRUD Destination/EditDestinationDialog"
 import BookNowButton from "@/components/Booking/bookNowButton";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
+import GetTokenFromServerComponent from "@/lib/getTokenFromServerComponent";
+import getTokenFromServerComponent from "@/lib/getTokenFromServerComponent";
 
 interface DestinationDetailsPageProps {
     params: Promise<{ id: string }>;
@@ -16,15 +16,13 @@ interface DestinationDetailsPageProps {
 const DestinationDetailsPage = async ({ params }: DestinationDetailsPageProps) => {
     const { id } = await params;
 
-    const jwtToken = await auth.api.getToken({
-        headers: await headers()
-    });
-    // console.log(jwtToken?.token);
+    const token = await getTokenFromServerComponent();
+    // console.log(token);
 
 
     const res = await fetch(`http://localhost:5000/destination/${id}`, {
         headers: {
-            authorization: `Bearer ${jwtToken?.token}`
+            authorization: `Bearer ${token}`
         }
     });
 

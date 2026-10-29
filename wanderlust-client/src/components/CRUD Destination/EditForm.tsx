@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { DestinationType } from "@/lib/destinations";
 import { DialogClose, DialogFooter } from "../ui/dialog";
 import { toast } from "react-toastify";
+import getTokenFromClientComponent from "@/lib/getTokenFromClientComponent";
 
 interface EditFormProps {
     destination: DestinationType
@@ -36,10 +37,13 @@ const EditForm = ({destination}: EditFormProps) => {
         });
         console.log("Data from form", editedPackage);
 
+        const token = await getTokenFromClientComponent();
+
         const res = await fetch(`http://localhost:5000/destination/${destination._id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
+                authorization: `Bearer ${token}`
             },
             body: JSON.stringify(editedPackage),
         })

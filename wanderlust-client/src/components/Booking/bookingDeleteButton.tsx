@@ -1,6 +1,7 @@
 
 "use client"
 import { MyBookingType } from "@/app/my-bookings/page";
+import getTokenFromClientComponent from "@/lib/getTokenFromClientComponent";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -13,8 +14,13 @@ const BookingDeleteButton = ({ booking }: BookingDeleteButtonProps) => {
     const router = useRouter();
 
     const handleBookingDeleteButton = async () => {
+        const token = await getTokenFromClientComponent();
+
         const res = await fetch(`http://localhost:5000/my-bookings/${booking._id}`, {
             method: "DELETE",
+            headers: {
+                authorization: `Bearer ${token}`
+            }
         });
 
         const data = await res.json();
