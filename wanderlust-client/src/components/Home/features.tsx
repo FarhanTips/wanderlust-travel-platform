@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Star } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 import {
     Carousel,
     CarouselContent,
