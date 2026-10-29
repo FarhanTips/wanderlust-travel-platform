@@ -6,7 +6,6 @@ import DeleteDestinationDialog from "@/components/CRUD Destination/DeleteDestina
 import EditDestinationDialog from "@/components/CRUD Destination/EditDestinationDialog"
 import BookNowButton from "@/components/Booking/bookNowButton";
 import { notFound } from "next/navigation";
-import GetTokenFromServerComponent from "@/lib/getTokenFromServerComponent";
 import getTokenFromServerComponent from "@/lib/getTokenFromServerComponent";
 
 interface DestinationDetailsPageProps {
